@@ -3,11 +3,26 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ProcessoSeletivo {
     public static void main(String[] args) throws Exception {
 
-        // analisarCandidato(1900.0);
-        // analisarCandidato(2200.0);
-        // analisarCandidato(2000.0);
-        selecaoCandidatos();
+        /*
+         * analisarCandidato(1900.0);
+         * analisarCandidato(2200.0);
+         * analisarCandidato(2000.0);
+         * selecaoCandidatos();
+         */
+        imprimirSelecionados();
 
+    }
+
+    static void imprimirSelecionados() {
+        String[] candidatos = { "FELIPE", "MARCIA", "JULIA", "PAULO", "AUGUSTO" };
+        System.out.println("Imprimindo a lista de candidatos informando o indice do elemento");
+        for (int i = 0; i < candidatos.length; i++) {
+            System.out.println("o candidato de nº" + (i + 1) + " é o(a) " + candidatos[i]);
+        }
+        System.out.println("forma abreviada de interação for each");
+        for (String candidato : candidatos) {
+            System.out.println("o candidato selecionado foi " + candidato);
+        }
     }
 
     static void selecaoCandidatos() {
@@ -19,9 +34,9 @@ public class ProcessoSeletivo {
         while (candidatosSelecionados < 5 && candidatosAtual < candidatos.length) {
             String candidato = candidatos[candidatosAtual];
             double salarioPretendido = valorPretendido();
-            System.out.println("O candidato"+candidato+" solicitou este valor de salário "+ salarioPretendido);
-            if (salarioBase>=salarioPretendido) {
-                System.out.println("o candidato "+candidato+" foi selecionado para a vaga");                
+            System.out.println("O candidato" + candidato + " solicitou este valor de salário " + salarioPretendido);
+            if (salarioBase >= salarioPretendido) {
+                System.out.println("o candidato " + candidato + " foi selecionado para a vaga");
             }
             candidatosAtual++;
         }
