@@ -30,7 +30,8 @@ public class ProcessoSeletivo {
                     + tentativasRealizadas + " realizada");
         }
     }
-    //metodo auxiliar
+
+    // metodo auxiliar
     static boolean atender() {
         return new Random().nextInt(3) == 1;
     }
