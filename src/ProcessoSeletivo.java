@@ -1,16 +1,38 @@
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class ProcessoSeletivo {
     public static void main(String[] args) throws Exception {
 
-        /*
-         * analisarCandidato(1900.0);
-         * analisarCandidato(2200.0);
-         * analisarCandidato(2000.0);
-         * selecaoCandidatos();
-         */
-        imprimirSelecionados();
+        String[] candidatos = { "FELIPE", "MARCIA", "JULIA", "PAULO", "AUGUSTO" };
+        for (String candidato : candidatos) {
+            entrandoEmContato(candidato);
+        }
+    }
 
+    static void entrandoEmContato(String candidato) {
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu = false;
+        do {
+            atendeu = atender();
+            continuarTentando = !atendeu;
+            if (continuarTentando) {
+                tentativasRealizadas++;
+            } else {
+                System.out.println("CONTATO REALIZADO COM SUCESSO!");
+            }
+        } while (continuarTentando && tentativasRealizadas < 3);
+        if (atendeu) {
+            System.out.println("conseguimos contato com " + candidato + " na " + tentativasRealizadas + " tentativa");
+        } else {
+            System.out.println("não conseguimos contato com " + candidato + ", número maximo de tentativas  "
+                    + tentativasRealizadas + " realizada");
+        }
+    }
+    //metodo auxiliar
+    static boolean atender() {
+        return new Random().nextInt(3) == 1;
     }
 
     static void imprimirSelecionados() {
